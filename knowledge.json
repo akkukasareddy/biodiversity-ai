@@ -1,0 +1,116 @@
+[
+  {
+    "topic": "Low soil organic carbon",
+    "keywords": ["soil carbon", "low carbon", "organic carbon"],
+    "recommendation": "Use cover crops, retain crop residues, add suitable organic matter, or use legume-based intercropping to increase carbon inputs to the soil.",
+    "scientific_reason": "Cover crops and crop residues add organic material to the soil. FAO reports that soil organic cover can improve soil properties and promote biodiversity in agricultural ecosystems.",
+    "metric": "Soil organic carbon",
+   "measurement": "Measure soil organic carbon periodically and compare it with the baseline value to track improvement.",
+   "time_horizon": "Medium term",
+    "confidence": "High",
+    "source": "FAO - Soil Organic Cover, Conservation Agriculture",
+    "source_url": "https://www.fao.org/conservation-agriculture/in-practice/soil-organic-cover/en/"
+  },
+  {
+    "topic": "Low soil moisture",
+    "keywords": ["soil moisture", "low moisture", "dry soil"],
+    "recommendation": "Use mulching, retain crop residues, and apply water-conserving practices to reduce evaporation and improve soil moisture retention.",
+    "scientific_reason": "FAO describes soil cover and mulching as practices that reduce evaporation and help maintain soil moisture. This is particularly relevant where water availability is limited.",
+    "metric": "Soil moisture",
+    "measurement": "Measure soil moisture periodically and compare it with the baseline to track water-retention improvement.",
+    "time_horizon": "Short to medium term",
+    "confidence": "High",
+    "source": "FAO - Conservation Agriculture for Soil Moisture",
+    "source_url": "https://www.fao.org/family-farming/detail/en/c/330409/"
+  },
+  {
+    "topic": "Monoculture",
+    "keywords": ["monoculture", "single crop", "low diversity"],
+    "recommendation": "Consider intercropping, crop rotation, or other diversified planting systems to increase plant and habitat diversity.",
+    "scientific_reason": "FAO reports that crop diversification practices such as intercropping and crop rotation can increase biodiversity and improve ecosystem services including soil quality and water use.",
+    "metric": "Habitat diversity and biodiversity",
+    "measurement": "Track the number and variety of plant species and other biodiversity indicators over time and compare them with the baseline.",
+    "time_horizon": "Medium to long term",
+    "confidence": "High",
+    "source": "FAO - Crop Diversification to Build Sustainable Food Systems",
+    "source_url": "https://www.fao.org/family-farming/detail/en/c/1642936/"
+  },
+  {
+    "topic": "Low rainfall",
+    "keywords": ["low rainfall", "rainfall", "drought"],
+    "recommendation": "Use soil-cover, mulching, rainwater-conservation, and other locally suitable water-management practices to improve water availability.",
+    "scientific_reason": "FAO describes conservation agriculture and soil-water conservation practices as approaches that can improve soil moisture and water-use efficiency under water-limited conditions.",
+    "metric": "Water availability and soil moisture",
+    "measurement": "Monitor soil moisture and water availability over time and compare the measurements with the baseline.",
+    "time_horizon": "Short to medium term",
+    "confidence": "High",
+    "source": "FAO - Conservation Agriculture for Soil Moisture",
+    "source_url": "https://www.fao.org/family-farming/detail/en/c/330409/"
+  },
+  {
+    "topic": "Biodiversity habitat",
+    "keywords": ["biodiversity", "habitat", "species"],
+    "recommendation": "Maintain diverse plant communities, native vegetation, and suitable habitat connections where locally appropriate.",
+    "scientific_reason": "FAO identifies diversification as an important principle of agroecology and reports that increasing biological diversity can provide environmental benefits and support ecosystem functions.",
+    "metric": "Biodiversity and habitat diversity",
+    "measurement": "Track species richness, habitat diversity and the presence of native species over time.",
+    "time_horizon": "Long term",
+    "confidence": "High",
+    "source": "FAO - Diversity in Agroecology",
+    "source_url": "https://www.fao.org/agroecology/overview/the-10-elements-of-agroecology/diversity/en"
+  },
+    
+  {
+    "topic": "Soil pH stress",
+    "keywords": ["soil ph", "acidic soil", "alkaline soil"],
+    "recommendation": "Monitor soil pH and use locally appropriate soil-management practices to maintain a suitable pH range for crops and soil organisms.",
+    "scientific_reason": "Soil pH influences nutrient availability, microbial activity and plant growth. Maintaining an appropriate pH can support healthier soil biological activity and plant communities.",
+    "metric": "Soil pH and soil biological activity",
+    "measurement": "Measure soil pH periodically and compare it with the suitable target range and baseline soil biological indicators.",
+    "time_horizon": "Medium term",
+    "confidence": "Medium",
+    "source": "FAO - Soils and Soil Fertility",
+    "source_url": "https://www.fao.org/soils-portal/soil-management/en/"
+  },
+  
+  {
+    "topic": "High temperature stress",
+    "keywords": ["high temperature", "heat stress", "hot conditions"],
+    "recommendation": "Use locally suitable shade vegetation, maintain soil cover, and improve habitat and water availability to reduce heat stress on plants and wildlife.",
+    "scientific_reason": "Higher temperatures can increase heat and water stress for organisms. Vegetation and soil cover can provide shade and help moderate local microclimate, while adequate water availability supports species survival during hot conditions.",
+    "metric": "Temperature stress, soil moisture and biodiversity",
+    "measurement": "Monitor temperature, soil moisture and biodiversity indicators over time to assess changes in heat and water stress.",
+    "time_horizon": "Short to long term",
+    "confidence": "Medium",
+    "source": "IPCC - Climate Change and Land",
+    "source_url": "https://www.ipcc.ch/srccl/"
+  },
+  {
+    "topic": "Pollution stress",
+    "keywords": ["pollution", "water pollution", "air pollution", "chemical pollution"],
+    "recommendation": "Reduce pollution sources where possible, maintain vegetation buffers, and use locally appropriate practices to protect soil and water quality.",
+    "scientific_reason": "Pollutants can degrade soil and water quality and create stress for plants, animals and microorganisms. Reducing pollutant exposure can help protect habitat quality and biodiversity.",
+    "metric": "Pollution level, soil quality, water quality and biodiversity",
+    "measurement": "Monitor relevant soil or water quality indicators and biodiversity indicators and compare them with baseline measurements.",
+    "time_horizon": "Medium to long term",
+    "confidence": "Medium",
+    "source": "IPCC - Climate Change and Land",
+    "source_url": "https://www.ipcc.ch/srccl/"
+  },
+  {
+    "topic": "Deforestation and habitat loss",
+    "keywords": ["deforestation", "forest loss", "habitat loss", "tree loss"],
+    "recommendation": "Protect remaining native vegetation, restore degraded habitat with locally appropriate native species, and maintain habitat connectivity.",
+    "scientific_reason": "Deforestation removes and fragments habitat, reducing the area and connectivity available for species. Protecting and restoring native vegetation can improve habitat conditions and support biodiversity.",
+    "metric": "Forest cover, habitat connectivity and biodiversity",
+    "measurement": "Monitor forest cover, habitat connectivity and biodiversity indicators over time and compare them with the baseline.",
+"time_horizon": "Medium to long term",   
+    "confidence": "High",
+    "source": "FAO - Global Forest Resources Assessment",
+    "source_url": "https://www.fao.org/interactive/forest-resources-assessment/2020/en/"
+  }
+]
+
+
+
+  

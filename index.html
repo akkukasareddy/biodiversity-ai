@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodiversity AI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef5ee;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #245c35;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            background: #2e7d46;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #245c35;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #f5faf5;
+            padding: 18px;
+            margin-top: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #2e7d46;
+        }
+
+        .card h3 {
+            color: #245c35;
+        }
+
+        .source {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌱 Biodiversity AI</h1>
+
+    <p class="subtitle">
+        AI-powered biodiversity and environmental recommendation system
+    </p>
+
+    <label>Region</label>
+    <input id="region" value="Semi-arid">
+
+    <label>Rainfall</label>
+    <input id="rainfall" value="low">
+
+    <label>Soil Organic Carbon (%)</label>
+    <input id="soil_carbon" type="number" value="0.3">
+
+    <label>Soil pH</label>
+    <input id="soil_ph" type="number" value="7.5">
+
+    <label>Soil Moisture</label>
+    <input id="soil_moisture" value="low">
+
+    <label>Land Use</label>
+    <input id="land_use" value="wheat monoculture">
+
+    <label>Temperature (°C)</label>
+    <input id="temperature" type="number" value="32">
+
+    <label>Describe your environmental problem</label>
+
+<textarea
+    id="question"
+    rows="4"
+    placeholder="Example: My farm has low rainfall, low soil carbon and wheat monoculture."
+    style="width:100%; padding:10px; margin-top:6px; box-sizing:border-box; border:1px solid #ccc; border-radius:7px;">
+</textarea>
+<label style="display:flex; align-items:center; gap:8px; margin-top:15px;">
+    <input id="use_memory" type="checkbox" style="width:auto;">
+    Continue previous conversation
+</label>
+<button onclick="analyze()">
+    Analyze Biodiversity
+</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+async function analyze() {
+
+    const data = {
+    session_id: "demo-session",
+    use_memory: document.getElementById("use_memory").checked,
+    region: document.getElementById("region").value,
+    rainfall: document.getElementById("rainfall").value,
+    soil_carbon: parseFloat(document.getElementById("soil_carbon").value),
+    soil_ph: parseFloat(document.getElementById("soil_ph").value),
+    soil_moisture: document.getElementById("soil_moisture").value,
+    land_use: document.getElementById("land_use").value,
+    temperature: parseFloat(document.getElementById("temperature").value),
+    question: document.getElementById("question").value
+};
+
+    const result = document.getElementById("result");
+
+    result.innerHTML = "<p>Analyzing environmental conditions...</p>";
+
+    try {
+
+        const response = await fetch("http://127.0.0.1:8000/analyze", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        const resultData = await response.json();
+
+if (resultData.clarification_needed) {
+
+    result.innerHTML = `
+        <div class="card">
+            <h3>🔎 More Information Needed</h3>
+
+            <p>${resultData.message}</p>
+
+            <p><strong>Please provide:</strong></p>
+
+            <ul>
+                ${resultData.missing_information
+                    .map(item => `<li>${item}</li>`)
+                    .join("")}
+            </ul>
+        </div>
+    `;
+
+    return;
+}
+
+let html = `
+    <h2>🌿 Biodiversity Analysis</h2>
+    <p><strong>Region:</strong> ${resultData.region}</p>
+`;
+
+        resultData.recommendations.forEach(item => {
+
+            html += `
+                <div class="card">
+
+                    <h3>${item.topic}</h3>
+
+                    <p>
+                        <strong>What to do:</strong><br>
+                        ${item.recommendation}
+                    </p>
+
+                    <p>
+                        <strong>Why it works:</strong><br>
+                        ${item.scientific_reason}
+                    </p>
+
+                    <p>
+                        <strong>Impacted metric:</strong>
+                        ${item.impacted_metric}
+                    </p>
+                    <p>
+                       <strong>How to measure:</strong>
+                    ${item.measurement || "Monitor the impacted metric against a baseline."}
+                    </p>
+
+                    <p>
+                        <strong>Time horizon:</strong>
+                        ${item.time_horizon}
+                    </p>
+
+                    <p>
+                       <strong>Confidence:</strong>
+                       ${item.confidence || "Not specified"}
+                    </p>
+
+                    <div class="source">
+                        <strong>Scientific source:</strong>
+                        <a href="${item.source_url}" target="_blank">
+                            ${item.source}
+                        </a>
+                    </div>
+
+                </div>
+            `;
+        });
+
+        result.innerHTML = html;
+
+    } catch (error) {
+
+        result.innerHTML = `
+            <p style="color:red;">
+                Could not connect to the Biodiversity AI server.
+                Make sure FastAPI is running.
+            </p>
+        `;
+    }
+}
+
+</script>
+
+</body>
+</html>
